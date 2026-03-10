@@ -1,0 +1,23 @@
+filebeat.inputs:
+  - type: filestream
+    id: cowrie-json
+    enabled: true
+    paths:
+      - /cowrie/cowrie-git/var/log/cowrie/cowrie.json
+    parsers:
+      - ndjson:
+          target: ""
+          add_error_key: true
+
+processors:
+  - add_fields:
+      target: ""
+      fields:
+        lab: "honeypot-lab"
+        source_app: "cowrie"
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+setup.ilm.enabled: false
+

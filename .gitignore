@@ -1,0 +1,14 @@
+.vscode/
+
+# OS / tooling
+Thumbs.db
+Desktop.ini
+
+# Node/Python common
+node_modules/
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
